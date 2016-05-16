@@ -113,6 +113,72 @@ cjo:Persona
   rdfs:subClassOf archi:BusinessActor ;
 .
 
+cjo:CommunicationChannelRole
+  rdf:type owl:Class ;
+  rdfs:label "Communication Channel Role"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
+.
+
+cjo:Acquisition
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Acquisition"^^xsd:string ;
+.
+
+cjo:Advertisement
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Advertisement"^^xsd:string ;
+.
+
+cjo:Advice
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Advice"^^xsd:string ;
+.
+
+cjo:CustomerService
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Customer Service"^^xsd:string ;
+.
+
+cjo:Delivery
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Delivery"^^xsd:string ;
+.
+
+cjo:Development
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Development"^^xsd:string ;
+.
+
+cjo:Information
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Information"^^xsd:string ;
+.
+
+cjo:Order
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Order"^^xsd:string ;
+.
+
+cjo:Promotion
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Promotion"^^xsd:string ;
+.
+
+cjo:Purchase
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Purchase"^^xsd:string ;
+.
+
+cjo:Reservation
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Reservation"^^xsd:string ;
+.
+
+cjo:Support
+  rdf:type cjo:CommunicationChannelRole ;
+  rdfs:label "Support"^^xsd:string ;
+.
+
 cjo:CommunicationChannelCategory
   rdf:type owl:Class ;
   rdfs:label "Communication Channel Category"^^xsd:string ;
@@ -267,6 +333,27 @@ cjo:RadioDevice
   rdfs:subClassOf cjo:Device ;
 .
 
+cjo:PhysicalTangible
+  rdf:type owl:Class ;
+  rdfs:label "Physical/Tangible"^^xsd:string ;
+  rdfs:subClassOf eo:ValueProposition ;
+.
 
+cjo:Intangible
+  rdf:type owl:Class ;
+  rdfs:label "Intangible"^^xsd:string ;
+  rdfs:subClassOf eo:ValueProposition ;
+.
+
+cjo:Digital
+  rdf:type owl:Class ;
+  rdfs:label "Digital"^^xsd:string ;
+  rdfs:subClassOf eo:ValueProposition ;
+.
+cjo:Financial
+  rdf:type owl:Class ;
+  rdfs:label "Financial"^^xsd:string ;
+  rdfs:subClassOf eo:ValueProposition ;
+.
 
 
