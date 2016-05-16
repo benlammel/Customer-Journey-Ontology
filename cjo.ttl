@@ -45,6 +45,51 @@ cjo:Stage
   rdfs:subClassOf bpmn:Group ;
 .
 
+cjo:Need
+  rdf:type cjo:Stage ;
+  rdfs:label "Need"^^xsd:string ;
+.
+
+cjo:Research
+  rdf:type cjo:Stage ;
+  rdfs:label "Research"^^xsd:string ;
+.
+
+cjo:Select
+  rdf:type cjo:Stage ;
+  rdfs:label "Select"^^xsd:string ;
+.
+
+cjo:Purchase
+  rdf:type cjo:Stage ;
+  rdfs:label "Purchase"^^xsd:string ;
+.
+
+cjo:Receive
+  rdf:type cjo:Stage ;
+  rdfs:label "Receive"^^xsd:string ;
+.
+
+cjo:Use
+  rdf:type cjo:Stage ;
+  rdfs:label "Use"^^xsd:string ;
+.
+
+cjo:Maintain
+  rdf:type cjo:Stage ;
+  rdfs:label "Maintain"^^xsd:string ;
+.
+
+cjo:Recommend
+  rdf:type cjo:Stage ;
+  rdfs:label "Recommend"^^xsd:string ;
+.
+
+cjo:Development
+  rdf:type cjo:Stage ;
+  rdfs:label "Development"^^xsd:string ;
+.
+
 cjo:CustomerJourneyEpisode
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Episode"^^xsd:string ;
