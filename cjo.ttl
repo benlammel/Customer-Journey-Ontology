@@ -1,1 +1,250 @@
+# baseURI: http://lammel.ch/cjo
+# imports: http://ikm-group.ch/archimeo
+# prefix: cjo
+
+@prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
+@prefix archimeo: <http://ikm-group.ch/archiMEO#> .
+@prefix bmm: <http://ikm-group.ch/archiMEO/BMM#> .
+@prefix cjo: <http://lammel.ch/cjo#> .
+@prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcmi-type-vocabulary: <http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary#> .
+@prefix dcterms: <http://purl.org/dcterms#> .
+@prefix elements: <http://purl.org/dc/elements/1.1#> .
+@prefix emo: <http://ikm-group.ch/archiMEO/emo#> .
+@prefix eo: <http://ikm-group.ch/archiMEO/eo#> .
+@prefix foaf: <http://xmlns.com/foaf/spec#> .
+@prefix iso42010: <http://ikm-group.ch/archimeo/iso42010#> .
+@prefix media-types: <http://www.iana.org/assignments/media-types#> .
+@prefix nco: <http://ikm-group.ch/archiMEO/nco#> .
+@prefix ontogov: <http://ch.fhnw.ontogov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfsplus: <http://topbraid.org/spin/rdfsplus#> .
+@prefix top: <http://ikm-group.ch/archiMEO/top#> .
+@prefix util: <http://ikm-group.ch/archiMEO/util#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://lammel.ch/cjo>
+  rdf:type owl:Ontology ;
+  owl:imports <http://ikm-group.ch/archimeo> ;
+  owl:versionInfo "First version" ;
+.
+
+cjo:CustomerJourney
+  rdf:type owl:Class ;
+  rdfs:label "CustomerJourney"^^xsd:string ;
+  rdfs:subClassOf bpmn:Process ;
+.
+
+cjo:Stage
+  rdf:type owl:Class ;
+  rdfs:label "Stage"^^xsd:string ;
+  rdfs:subClassOf bpmn:Group ;
+.
+
+cjo:CustomerJourneyEpisode
+  rdf:type owl:Class ;
+  rdfs:label "Customer Journey Episode"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerJourney ;
+.
+
+cjo:InsideAssociation
+  rdf:type owl:Class ;
+  rdfs:label "Inside Association"^^xsd:string ;
+  rdfs:subClassOf bpmn:Association ;
+.
+
+cjo:fromFlowElement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "fromFlowElement"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+cjo:toFlowElement 
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "toFlowElement "^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+cjo:hasReferencedCustomerJourneyEpisode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "fromFlowElement"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+cjo:hasDataClassification
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "fromFlowElement"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+cjo:DataClassification
+  rdf:type owl:Class ;
+  rdfs:label "Data Classification"^^xsd:string ;
+  rdfs:subClassOf archi:DataObject ;
+.
+
+cjo:public
+  rdf:type cjo:public ;
+  rdfs:label "public"^^xsd:string ;
+.
+
+cjo:personalized
+  rdf:type cjo:personalized ;
+  rdfs:label "public"^^xsd:string ;
+.
+
+cjo:ThirdPartyProvider
+  rdf:type owl:Class ;
+  rdfs:label "Third Party Provider"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+
+cjo:Persona
+  rdf:type owl:Class ;
+  rdfs:label "Customer"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+
+cjo:CommunicationChannelCategory
+  rdf:type owl:Class ;
+  rdfs:label "Communication Channel Category"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
+.
+
+cjo:Offline
+  rdf:type owl:Class ;
+  rdfs:label "Offline"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannelCategory ;
+.
+
+cjo:Online
+  rdf:type owl:Class ;
+  rdfs:label "Online"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannelCategory ;
+.
+
+cjo:CommunicationChannel
+  rdf:type owl:Class ;
+  rdfs:label "Communication Channel"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
+.
+
+cjo:FaceToFace
+  rdf:type owl:Class ;
+  rdfs:label "FaceToFace"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Telephone
+  rdf:type owl:Class ;
+  rdfs:label "Telephone"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:SocialMedia
+  rdf:type owl:Class ;
+  rdfs:label "Social Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Television
+  rdf:type owl:Class ;
+  rdfs:label "Television"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Video
+  rdf:type owl:Class ;
+  rdfs:label "Video"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Film
+  rdf:type owl:Class ;
+  rdfs:label "Film"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Radio
+  rdf:type owl:Class ;
+  rdfs:label "Radio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Audio
+  rdf:type owl:Class ;
+  rdfs:label "Audio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:PublishedMedia
+  rdf:type owl:Class ;
+  rdfs:label "Published Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Magazine
+  rdf:type owl:Class ;
+  rdfs:label "Magazine"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Newspaper
+  rdf:type owl:Class ;
+  rdfs:label "Newspaper"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Device
+  rdf:type owl:Class ;
+  rdfs:label "Device"^^xsd:string ;
+  rdfs:subClassOf top:Location ;
+.
+
+cjo:LaptopMac
+  rdf:type owl:Class ;
+  rdfs:label "Laptop/Mac"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+cjo:Tablet
+  rdf:type owl:Class ;
+  rdfs:label "Tablet"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+cjo:MobilePhone
+  rdf:type owl:Class ;
+  rdfs:label "Mobile Phone"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+cjo:Handheld
+  rdf:type owl:Class ;
+  rdfs:label "Handheld"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+cjo:GameConsole
+  rdf:type owl:Class ;
+  rdfs:label "Game Console"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+cjo:RadioDevice
+  rdf:type owl:Class ;
+  rdfs:label "Radio Device"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+
+
+
 
