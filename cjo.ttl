@@ -92,12 +92,12 @@ cjo:DataClassification
 .
 
 cjo:public
-  rdf:type cjo:public ;
+  rdf:type cjo:DataClassification ;
   rdfs:label "public"^^xsd:string ;
 .
 
 cjo:personalized
-  rdf:type cjo:personalized ;
+  rdf:type cjo:DataClassification ;
   rdfs:label "public"^^xsd:string ;
 .
 
@@ -119,16 +119,14 @@ cjo:CommunicationChannelCategory
   rdfs:subClassOf archi:BusinessInterface ;
 .
 
-cjo:Offline
-  rdf:type owl:Class ;
+cjo:offline
+  rdf:type cjo:CommunicationChannelCategory ;
   rdfs:label "Offline"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannelCategory ;
 .
 
-cjo:Online
-  rdf:type owl:Class ;
-  rdfs:label "Online"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannelCategory ;
+cjo:online
+  rdf:type cjo:CommunicationChannelCategory ;
+  rdfs:label "online"^^xsd:string ;
 .
 
 cjo:CommunicationChannel
@@ -150,6 +148,12 @@ cjo:Telephone
 .
 
 cjo:SocialMedia
+  rdf:type owl:Class ;
+  rdfs:label "Social Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Email
   rdf:type owl:Class ;
   rdfs:label "Social Media"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
@@ -198,6 +202,24 @@ cjo:Magazine
 .
 
 cjo:Newspaper
+  rdf:type owl:Class ;
+  rdfs:label "Newspaper"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:Website
+  rdf:type owl:Class ;
+  rdfs:label "Published Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:BrokerService
+  rdf:type owl:Class ;
+  rdfs:label "Magazine"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+
+cjo:RatingService
   rdf:type owl:Class ;
   rdfs:label "Newspaper"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
