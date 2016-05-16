@@ -35,8 +35,29 @@
 
 cjo:CustomerJourney
   rdf:type owl:Class ;
-  rdfs:label "CustomerJourney"^^xsd:string ;
+  rdfs:label "Customer Journey Status"^^xsd:string ;
   rdfs:subClassOf bpmn:Process ;
+.
+
+cjo:CustomerJourneyStatus
+  rdf:type owl:Class ;
+  rdfs:label "Customer Journey Status"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerJourney ;
+.
+
+cjo:InProgress
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "InProgress"^^xsd:string ;
+.
+
+cjo:Aborted
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "Aborted"^^xsd:string ;
+.
+
+cjo:InProgress
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "InProgress"^^xsd:string ;
 .
 
 cjo:Stage
@@ -46,48 +67,57 @@ cjo:Stage
 .
 
 cjo:Need
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Need"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Research
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Research"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Select
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Select"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Purchase
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Purchase"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Receive
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Receive"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Use
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Use"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Maintain
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Maintain"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:Recommend
-  rdf:type cjo:Stage ;
+  rdf:type owl:Class ;
   rdfs:label "Recommend"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Development
-  rdf:type cjo:Stage ;
-  rdfs:label "Development"^^xsd:string ;
+cjo:Develop
+  rdf:type owl:Class ;
+  rdfs:label "Develop"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
 .
 
 cjo:CustomerJourneyEpisode
@@ -207,11 +237,6 @@ cjo:Order
 cjo:Promotion
   rdf:type cjo:CommunicationChannelRole ;
   rdfs:label "Promotion"^^xsd:string ;
-.
-
-cjo:Purchase
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Purchase"^^xsd:string ;
 .
 
 cjo:Reservation
