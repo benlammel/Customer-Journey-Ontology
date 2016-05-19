@@ -66,55 +66,55 @@ cjo:Stage
   rdfs:subClassOf bpmn:Group ;
 .
 
-cjo:Need
+cjo:NeedStage
   rdf:type owl:Class ;
   rdfs:label "Need"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Research
+cjo:ResearchStage
   rdf:type owl:Class ;
   rdfs:label "Research"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Select
+cjo:SelectStage
   rdf:type owl:Class ;
   rdfs:label "Select"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Purchase
+cjo:PurchaseStage
   rdf:type owl:Class ;
   rdfs:label "Purchase"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Receive
+cjo:ReceiveStage
   rdf:type owl:Class ;
   rdfs:label "Receive"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Use
+cjo:UseStage
   rdf:type owl:Class ;
   rdfs:label "Use"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Maintain
+cjo:MaintainStage
   rdf:type owl:Class ;
   rdfs:label "Maintain"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Recommend
+cjo:RecommendStage
   rdf:type owl:Class ;
   rdfs:label "Recommend"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:Develop
+cjo:DevelopStage
   rdf:type owl:Class ;
   rdfs:label "Develop"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
@@ -132,20 +132,6 @@ cjo:InsideAssociation
   rdfs:subClassOf bpmn:Association ;
 .
 
-cjo:fromFlowElement
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "fromFlowElement"^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
-
-cjo:toFlowElement 
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "toFlowElement "^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
-
 cjo:hasReferencedCustomerJourneyEpisode
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
@@ -153,11 +139,11 @@ cjo:hasReferencedCustomerJourneyEpisode
   rdfs:range owl:Thing ;
 .
 
-cjo:hasDataClassification
+cjo:DataHasDataClassification
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:label "fromFlowElement"^^xsd:string ;
-  rdfs:range owl:Thing ;
+  rdfs:label "Data has data classification"^^xsd:string ;
+  rdfs:range cjo:DataClassification ;
 .
 
 cjo:DataClassification
@@ -186,6 +172,158 @@ cjo:Persona
   rdf:type owl:Class ;
   rdfs:label "Customer"^^xsd:string ;
   rdfs:subClassOf archi:BusinessActor ;
+  owl:equivalentClass eo:Person ;
+.
+
+# == Device attributes ==
+
+cjo:PersonaHasDevice
+  rdf:type rdf:Property ;
+  rdfs:label "Persona has device"^^xsd:string ;
+  rdfs:range cjo:Device ;
+.
+
+# == END Device attributes ==
+
+# == Demographic attributes ==
+
+cjo:PersonaHasBirthDate
+  rdf:type rdf:Property ;
+  rdfs:label "PersonaHasBirthDate"^^xsd:string ;
+  rdfs:range xsd:date ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Demographics
+  rdf:type owl:Class ;
+  rdfs:label "Demographic"^^xsd:string ;
+  rdfs:subClassOf cjo:Persona ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:ResidentialStatus
+  rdf:type owl:Class ;
+  rdfs:label "Residential Status"^^xsd:string ;
+  rdfs:subClassOf cjo:Demographics ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:PersonaHasResidentialStatus
+  rdf:type rdf:Property ;
+  rdfs:label "Persona has residential status"^^xsd:string ;
+  rdfs:range cjo:ResidentialStatus ;
+.
+
+cjo:LivingWithParents
+  rdf:type cjo:ResidentialStatus ;
+  rdfs:label "Living with parents"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:LivingAloneWithoutPartner
+  rdf:type cjo:ResidentialStatus ;
+  rdfs:label "Living alone without partner"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:LivingAloneWithPartner
+  rdf:type cjo:ResidentialStatus ;
+  rdfs:label "Living alone with partner"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:SharingFlatWithFlatmates
+  rdf:type cjo:ResidentialStatus ;
+  rdfs:label "Sharing flat with flatmates"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:SharingFlatWithTenants
+  rdf:type cjo:ResidentialStatus ;
+  rdfs:label "Sharing flat with tenants"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:MaritalStatus
+  rdf:type owl:Class ;
+  rdfs:label "Marital Status"^^xsd:string ;
+  rdfs:subClassOf cjo:Demographics ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:PersonaHasMaritalStatus
+  rdf:type rdf:Property ;
+  rdfs:label "Persona has marital status"^^xsd:string ;
+  rdfs:range cjo:MaritalStatus ;
+.
+
+cjo:MarriedCivilPartnershipLivingWithPartner
+  rdf:type cjo:MaritalStatus ;
+  rdfs:label "Married/civil partnership/living with partner"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:SingleWidowedDivorsedSeperated
+  rdf:type cjo:MaritalStatus ;
+  rdfs:label "Single/Widowed/Divorsed/Seperated"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:WorkingStatus
+  rdf:type owl:Class ;
+  rdfs:label "Working Status"^^xsd:string ;
+  rdfs:subClassOf cjo:Demographics ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:PersonaHasWorkingStatus
+  rdf:type rdf:Property ;
+  rdfs:label "Persona has working status"^^xsd:string ;
+  rdfs:range cjo:WorkingStatus ;
+.
+
+cjo:WorkingFullTime
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "Full time (30+ hours per week)"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:WorkingPartTime
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "Part time (8-29 hours per week)"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:WorkingPartTimeLight
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "Part time (under 8 hours per week)"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:NoPaidWork
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "No paid work"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Retired
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "Retired"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Housewife
+  rdf:type cjo:WorkingStatus ;
+  rdfs:label "Housewife"^^xsd:string ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+# == END Demographic attributes ==
+
+cjo:DataClassification
+  rdf:type owl:Class ;
+  rdfs:label "Data Classification"^^xsd:string ;
+  rdfs:subClassOf archi:DataObject ;
 .
 
 cjo:CommunicationChannelRole
@@ -219,9 +357,9 @@ cjo:Delivery
   rdfs:label "Delivery"^^xsd:string ;
 .
 
-cjo:Development
+cjo:Develop
   rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Development"^^xsd:string ;
+  rdfs:label "Develop"^^xsd:string ;
 .
 
 cjo:Information
