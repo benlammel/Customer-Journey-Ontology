@@ -39,6 +39,13 @@ cjo:CustomerJourney
   rdfs:subClassOf bpmn:Process ;
 .
 
+cjo:hasReferencedCustomerJourney
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+
 cjo:CustomerJourneyStatus
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Status"^^xsd:string ;
@@ -126,17 +133,11 @@ cjo:CustomerJourneyEpisode
   rdfs:subClassOf cjo:CustomerJourney ;
 .
 
-cjo:InsideAssociation
-  rdf:type owl:Class ;
-  rdfs:label "Inside Association"^^xsd:string ;
-  rdfs:subClassOf bpmn:Association ;
-.
-
 cjo:hasReferencedCustomerJourneyEpisode
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:label "fromFlowElement"^^xsd:string ;
-  rdfs:range owl:Thing ;
+  rdfs:label "hasReferencedCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
 .
 
 cjo:DataHasDataClassification
@@ -165,6 +166,12 @@ cjo:personalized
 cjo:ThirdPartyProvider
   rdf:type owl:Class ;
   rdfs:label "Third Party Provider"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+
+cjo:ThirdPartyPerson
+  rdf:type owl:Class ;
+  rdfs:label "Third Party Person"^^xsd:string ;
   rdfs:subClassOf archi:BusinessActor ;
 .
 
