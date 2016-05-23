@@ -565,10 +565,61 @@ cjo:Digital
   rdfs:label "Digital"^^xsd:string ;
   rdfs:subClassOf eo:ValueProposition ;
 .
+
 cjo:Financial
   rdf:type owl:Class ;
   rdfs:label "Financial"^^xsd:string ;
   rdfs:subClassOf eo:ValueProposition ;
 .
 
+# == Experience Rating attributes and properties ==
+
+cjo:ExperienceRating
+  rdf:type owl:Class ;
+  rdfs:label "ExperienceRating"^^xsd:string ;
+  rdfs:subClassOf archi:Value ;
+.
+
+cjo:hasExperienceRating
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasExperienceRating"^^xsd:string ;
+  rdfs:range cjo:ExperienceRating ;
+.
+
+cjo:hasExperienceValueNumber
+  rdf:type rdf:Property ;
+  rdfs:label "hasValueNumber"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+
+cjo:verydissatisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 0 ;
+  rdfs:label "very dissatisfied"^^xsd:string ;
+.
+
+cjo:dissatisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 1 ;
+  rdfs:label "dissatisfied"^^xsd:string ;
+.
+
+cjo:neutral
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 2 ;
+  rdfs:label "neutral"^^xsd:string ;
+.
+
+cjo:satisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 3 ;
+  rdfs:label "satisfied"^^xsd:string ;
+.
+
+cjo:verysatisfied 
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 4 ;
+  rdfs:label "very satisfied "^^xsd:string ;
+.
 
