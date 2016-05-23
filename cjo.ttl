@@ -73,45 +73,9 @@ cjo:Stage
   rdfs:subClassOf bpmn:Group ;
 .
 
-cjo:NeedStage
+cjo:DevelopStage
   rdf:type owl:Class ;
-  rdfs:label "Need"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:ResearchStage
-  rdf:type owl:Class ;
-  rdfs:label "Research"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:SelectStage
-  rdf:type owl:Class ;
-  rdfs:label "Select"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:PurchaseStage
-  rdf:type owl:Class ;
-  rdfs:label "Purchase"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:ReceiveStage
-  rdf:type owl:Class ;
-  rdfs:label "Receive"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:UseStage
-  rdf:type owl:Class ;
-  rdfs:label "Use"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:MaintainStage
-  rdf:type owl:Class ;
-  rdfs:label "Maintain"^^xsd:string ;
+  rdfs:label "Develop"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
@@ -121,9 +85,45 @@ cjo:RecommendStage
   rdfs:subClassOf cjo:Stage ;
 .
 
-cjo:DevelopStage
+cjo:MaintainStage
   rdf:type owl:Class ;
-  rdfs:label "Develop"^^xsd:string ;
+  rdfs:label "Maintain"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:UseStage
+  rdf:type owl:Class ;
+  rdfs:label "Use"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:ReceiveStage
+  rdf:type owl:Class ;
+  rdfs:label "Receive"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:PurchaseStage
+  rdf:type owl:Class ;
+  rdfs:label "Purchase"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:SelectStage
+  rdf:type owl:Class ;
+  rdfs:label "Select"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:ResearchStage
+  rdf:type owl:Class ;
+  rdfs:label "Research"^^xsd:string ;
+  rdfs:subClassOf cjo:Stage ;
+.
+
+cjo:NeedStage
+  rdf:type owl:Class ;
+  rdfs:label "Need"^^xsd:string ;
   rdfs:subClassOf cjo:Stage ;
 .
 
