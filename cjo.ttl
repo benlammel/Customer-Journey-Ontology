@@ -175,6 +175,12 @@ cjo:ThirdPartyPerson
   rdfs:subClassOf archi:BusinessActor ;
 .
 
+cjo:InternalActor
+  rdf:type owl:Class ;
+  rdfs:label "Internal Actor"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+
 cjo:Persona
   rdf:type owl:Class ;
   rdfs:label "Customer"^^xsd:string ;
@@ -622,4 +628,27 @@ cjo:verysatisfied
   cjo:hasExperienceValueNumber 4 ;
   rdfs:label "very satisfied "^^xsd:string ;
 .
+
+cjo:hasReferencedActor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedActor"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+cjo:hasReferencedStage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedStage"^^xsd:string ;
+  rdfs:range cjo:Stage ;
+.
+
+cjo:hasReferencedActivity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedActivity"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+
 
