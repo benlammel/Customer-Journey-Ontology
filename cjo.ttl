@@ -33,135 +33,106 @@
   owl:versionInfo "First version" ;
 .
 
-cjo:CustomerJourney
+# == Customer Lifecycle ==
+cjo:CustomerLifecycle
   rdf:type owl:Class ;
-  rdfs:label "Customer Journey Status"^^xsd:string ;
-  rdfs:subClassOf bpmn:Process ;
+  rdfs:label "Customer Lifecycle"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
 .
 
-cjo:hasReferencedCustomerJourney
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedCustomerJourney"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
-.
-
-cjo:CustomerJourneyStatus
+cjo:DevelopPhase
   rdf:type owl:Class ;
-  rdfs:label "Customer Journey Status"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerJourney ;
+  rdfs:label "Develop"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
 .
 
-cjo:InProgress
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "InProgress"^^xsd:string ;
+cjo:RecommendPhase
+ rdf:type owl:Class ;
+ rdfs:label "Recommend"^^xsd:string ;
+ rdfs:subClassOf cjo:CustomerLifecycle ;
 .
 
-cjo:Aborted
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "Aborted"^^xsd:string ;
+cjo:MaintainPhase
+  rdf:type owl:Class ;
+  rdfs:label "Maintain"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
 .
 
-cjo:InProgress
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "InProgress"^^xsd:string ;
+cjo:UsePhase
+  rdf:type owl:Class ;
+  rdfs:label "Use"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
 .
 
+cjo:ReceivePhase
+  rdf:type owl:Class ;
+  rdfs:label "Receive"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+
+cjo:PurchasePhase
+  rdf:type owl:Class ;
+  rdfs:label "Purchase"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+
+cjo:SelectPhase
+  rdf:type owl:Class ;
+  rdfs:label "Select"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+
+cjo:ResearchPhase
+  rdf:type owl:Class ;
+  rdfs:label "Research"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+
+cjo:NeedPhase
+  rdf:type owl:Class ;
+  rdfs:label "Need"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+
+#cjo:hasReferencedCustomerLifecycle
+#  rdf:type owl:ObjectProperty ;
+#  rdfs:domain owl:Thing ;
+#  rdfs:label "hasReferencedCustomerLifecycle"^^xsd:string ;
+#  rdfs:range cjo:CustomerLifecycle ;
+#.
+
+# == END Customer Lifecycle ==
+
+# == Stage and Path ==
 cjo:Stage
   rdf:type owl:Class ;
   rdfs:label "Stage"^^xsd:string ;
-  rdfs:subClassOf bpmn:Group ;
+  rdfs:subClassOf owl:Thing ;
 .
 
-cjo:DevelopStage
-  rdf:type owl:Class ;
-  rdfs:label "Develop"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:RecommendStage
-  rdf:type owl:Class ;
-  rdfs:label "Recommend"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:MaintainStage
-  rdf:type owl:Class ;
-  rdfs:label "Maintain"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:UseStage
-  rdf:type owl:Class ;
-  rdfs:label "Use"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:ReceiveStage
-  rdf:type owl:Class ;
-  rdfs:label "Receive"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:PurchaseStage
-  rdf:type owl:Class ;
-  rdfs:label "Purchase"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:SelectStage
-  rdf:type owl:Class ;
-  rdfs:label "Select"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:ResearchStage
-  rdf:type owl:Class ;
-  rdfs:label "Research"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:NeedStage
-  rdf:type owl:Class ;
-  rdfs:label "Need"^^xsd:string ;
-  rdfs:subClassOf cjo:Stage ;
-.
-
-cjo:CustomerJourneyEpisode
-  rdf:type owl:Class ;
-  rdfs:label "Customer Journey Episode"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerJourney ;
-.
-
-cjo:hasReferencedCustomerJourneyEpisode
+cjo:hasReferencedStage
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedCustomerJourneyEpisode"^^xsd:string ;
-  rdfs:range cjo:CustomerJourneyEpisode ;
+  rdfs:label "hasReferencedStage"^^xsd:string ;
+  rdfs:range cjo:Stage ;
 .
 
-cjo:DataHasDataClassification
+cjo:Path
+  rdf:type owl:Class ;
+  rdfs:label "Path"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+cjo:hasReferencedPath
   rdf:type owl:ObjectProperty ;
   rdfs:domain owl:Thing ;
-  rdfs:label "Data has data classification"^^xsd:string ;
-  rdfs:range cjo:DataClassification ;
+  rdfs:label "hasReferencedPath"^^xsd:string ;
+  rdfs:range cjo:Path ;
 .
 
-cjo:DataClassification
-  rdf:type owl:Class ;
-  rdfs:label "Data Classification"^^xsd:string ;
-  rdfs:subClassOf archi:DataObject ;
-.
+# == END Stage ==
 
-cjo:public
-  rdf:type cjo:DataClassification ;
-  rdfs:label "public"^^xsd:string ;
-.
-
-cjo:personalized
-  rdf:type cjo:DataClassification ;
-  rdfs:label "public"^^xsd:string ;
-.
+# == Actors ==
 
 cjo:ThirdPartyProvider
   rdf:type owl:Class ;
@@ -187,6 +158,336 @@ cjo:Persona
   rdfs:subClassOf archi:BusinessActor ;
   owl:equivalentClass eo:Person ;
 .
+
+# == END Actors ==
+
+# == Product/Service - Customer Journey Mapping ==
+cjo:ProductServiceJourneyMapping
+  rdf:type owl:Class ;
+  rdfs:label "Product/Service Journey Mapping"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+
+cjo:hasProductServiceJourneyMapping
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasProductServiceJourneyMapping"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+
+cjo:hasReferencedProductService
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedProductService"^^xsd:string ;
+  rdfs:range archi:Product ;
+.
+# == END Product/Service - Customer Journey Mapping ==
+
+# == Customer Journey ==
+cjo:CustomerJourney
+  rdf:type owl:Class ;
+  rdfs:label "Customer Journey Status"^^xsd:string ;
+  rdfs:subClassOf bpmn:Process ;
+.
+
+cjo:hasReferencedCustomerJourney
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+
+cjo:hasReferencedActivity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedActivity"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+# == END Customer Journey ==
+
+# == Customer Journey Episode ==
+
+cjo:CustomerJourneyEpisode
+  rdf:type owl:Class ;
+  rdfs:label "Customer Journey Episode"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerJourney ;
+.
+
+cjo:Touchpoint
+  rdf:type owl:Class ;
+  rdfs:label "Touchpoint"^^xsd:string ;
+  rdfs:subClassOf cjo:Touchpoint ;
+.
+
+cjo:ActiveTouchpoint
+  rdf:type owl:Class ;
+  rdfs:label "Active Touchpoint"^^xsd:string ;
+  rdfs:subClassOf cjo:Touchpoint ;
+.
+
+cjo:PassiveTouchpoint
+  rdf:type owl:Class ;
+  rdfs:label "Passive Touchpoint"^^xsd:string ;
+  rdfs:subClassOf cjo:Touchpoint ;
+.
+
+cjo:hasTouchpointType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasTouchpointType"^^xsd:string ;
+  rdfs:range cjo:Touchpoint ;
+.
+
+cjo:hasReferencedTouchpoint
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedTouchpoint"^^xsd:string ;
+  rdfs:range cjo:Touchpoint ;
+.
+
+cjo:hasReferencedCustomerJourneyEpisode
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
+
+cjo:hasReferencedDataObject
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+.
+
+cjo:hasReferencedDataSet
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedDataSet"^^xsd:string ;
+  rdfs:range eo:DataSet ;
+.
+
+cjo:hasReferencedActor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedActor"^^xsd:string ;
+  rdfs:range owl:Thing ;
+.
+
+# == Experience Rating attributes and properties ==
+
+cjo:ExperienceRating
+  rdf:type owl:Class ;
+  rdfs:label "ExperienceRating"^^xsd:string ;
+  rdfs:subClassOf archi:Value ;
+.
+
+cjo:hasExperienceRating
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasExperienceRating"^^xsd:string ;
+  rdfs:range cjo:ExperienceRating ;
+.
+
+cjo:hasExperienceValueNumber
+  rdf:type rdf:Property ;
+  rdfs:label "hasValueNumber"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+
+cjo:verydissatisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 0 ;
+  rdfs:label "very dissatisfied"^^xsd:string ;
+.
+
+cjo:dissatisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 1 ;
+  rdfs:label "dissatisfied"^^xsd:string ;
+.
+
+cjo:neutral
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 2 ;
+  rdfs:label "neutral"^^xsd:string ;
+.
+
+cjo:satisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 3 ;
+  rdfs:label "satisfied"^^xsd:string ;
+.
+
+cjo:verysatisfied 
+  rdf:type cjo:ExperienceRating ;
+  cjo:hasExperienceValueNumber 4 ;
+  rdfs:label "very satisfied "^^xsd:string ;
+.
+
+# == END Customer Journey Episode ==
+
+# == Communication Channel ==
+
+cjo:CommunicationChannel
+  rdf:type owl:Class ;
+  rdfs:label "Communication Channel"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
+.
+
+cjo:hasReferencedCommunicationChannel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain owl:Thing ;
+  rdfs:label "hasReferencedCommunicationChannel"^^xsd:string ;
+  rdfs:range cjo:CommunicationChannel ;
+.
+
+cjo:FaceToFace
+  rdf:type owl:Class ;
+  rdfs:label "FaceToFace"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Telephone
+  rdf:type owl:Class ;
+  rdfs:label "Telephone"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:SocialMedia
+  rdf:type owl:Class ;
+  rdfs:label "Social Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Email
+  rdf:type owl:Class ;
+  rdfs:label "Social Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Television
+  rdf:type owl:Class ;
+  rdfs:label "Television"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Video
+  rdf:type owl:Class ;
+  rdfs:label "Video"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Film
+  rdf:type owl:Class ;
+  rdfs:label "Film"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Radio
+  rdf:type owl:Class ;
+  rdfs:label "Radio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Audio
+  rdf:type owl:Class ;
+  rdfs:label "Audio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:PublishedMedia
+  rdf:type owl:Class ;
+  rdfs:label "Published Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Magazine
+  rdf:type owl:Class ;
+  rdfs:label "Magazine"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Newspaper
+  rdf:type owl:Class ;
+  rdfs:label "Newspaper"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:Website
+  rdf:type owl:Class ;
+  rdfs:label "Published Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:BrokerService
+  rdf:type owl:Class ;
+  rdfs:label "Magazine"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+cjo:RatingService
+  rdf:type owl:Class ;
+  rdfs:label "Newspaper"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+.
+
+# == END Communication Channel ==
+
+# == NEW TOPIC  ==
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cjo:CustomerJourneyStatus
+  rdf:type owl:Class ;
+  rdfs:label "Customer Journey Status"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerJourney ;
+.
+
+cjo:InProgress
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "InProgress"^^xsd:string ;
+.
+
+cjo:Aborted
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "Aborted"^^xsd:string ;
+.
+
+cjo:InProgress
+  rdf:type cjo:CustomerJourneyStatus ;
+  rdfs:label "InProgress"^^xsd:string ;
+.
+
+
+
 
 # == Device attributes ==
 
@@ -416,101 +717,7 @@ cjo:online
   rdfs:label "online"^^xsd:string ;
 .
 
-cjo:CommunicationChannel
-  rdf:type owl:Class ;
-  rdfs:label "Communication Channel"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessInterface ;
-.
 
-cjo:FaceToFace
-  rdf:type owl:Class ;
-  rdfs:label "FaceToFace"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Telephone
-  rdf:type owl:Class ;
-  rdfs:label "Telephone"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:SocialMedia
-  rdf:type owl:Class ;
-  rdfs:label "Social Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Email
-  rdf:type owl:Class ;
-  rdfs:label "Social Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Television
-  rdf:type owl:Class ;
-  rdfs:label "Television"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Video
-  rdf:type owl:Class ;
-  rdfs:label "Video"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Film
-  rdf:type owl:Class ;
-  rdfs:label "Film"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Radio
-  rdf:type owl:Class ;
-  rdfs:label "Radio"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Audio
-  rdf:type owl:Class ;
-  rdfs:label "Audio"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:PublishedMedia
-  rdf:type owl:Class ;
-  rdfs:label "Published Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Magazine
-  rdf:type owl:Class ;
-  rdfs:label "Magazine"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Newspaper
-  rdf:type owl:Class ;
-  rdfs:label "Newspaper"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:Website
-  rdf:type owl:Class ;
-  rdfs:label "Published Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:BrokerService
-  rdf:type owl:Class ;
-  rdfs:label "Magazine"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
-
-cjo:RatingService
-  rdf:type owl:Class ;
-  rdfs:label "Newspaper"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-.
 
 cjo:Device
   rdf:type owl:Class ;
@@ -578,77 +785,6 @@ cjo:Financial
   rdfs:subClassOf eo:ValueProposition ;
 .
 
-# == Experience Rating attributes and properties ==
-
-cjo:ExperienceRating
-  rdf:type owl:Class ;
-  rdfs:label "ExperienceRating"^^xsd:string ;
-  rdfs:subClassOf archi:Value ;
-.
-
-cjo:hasExperienceRating
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasExperienceRating"^^xsd:string ;
-  rdfs:range cjo:ExperienceRating ;
-.
-
-cjo:hasExperienceValueNumber
-  rdf:type rdf:Property ;
-  rdfs:label "hasValueNumber"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-
-cjo:verydissatisfied
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 0 ;
-  rdfs:label "very dissatisfied"^^xsd:string ;
-.
-
-cjo:dissatisfied
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 1 ;
-  rdfs:label "dissatisfied"^^xsd:string ;
-.
-
-cjo:neutral
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 2 ;
-  rdfs:label "neutral"^^xsd:string ;
-.
-
-cjo:satisfied
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 3 ;
-  rdfs:label "satisfied"^^xsd:string ;
-.
-
-cjo:verysatisfied 
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 4 ;
-  rdfs:label "very satisfied "^^xsd:string ;
-.
-
-cjo:hasReferencedActor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedActor"^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
-
-cjo:hasReferencedStage
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedStage"^^xsd:string ;
-  rdfs:range cjo:Stage ;
-.
-
-cjo:hasReferencedActivity
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedActivity"^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
 
 
 
