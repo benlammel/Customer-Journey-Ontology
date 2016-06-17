@@ -5,9 +5,9 @@
 @prefix archi: <http://ikm-group.ch/archiMEO/archimate#> .
 @prefix archimeo: <http://ikm-group.ch/archiMEO#> .
 @prefix bmm: <http://ikm-group.ch/archiMEO/BMM#> .
-@prefix cjo: <http://lammel.ch/cjo#> .
 @prefix bpmn: <http://ikm-group.ch/archiMEO/BPMN#> .
 @prefix cc: <http://creativecommons.org/ns#> .
+@prefix cjo: <http://lammel.ch/cjo#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcmi-type-vocabulary: <http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary#> .
 @prefix dcterms: <http://purl.org/dcterms#> .
@@ -32,758 +32,492 @@
   owl:imports <http://ikm-group.ch/archimeo> ;
   owl:versionInfo "First version" ;
 .
-
-# == Customer Lifecycle ==
-cjo:CustomerLifecycle
+cjo:Acquisition
   rdf:type owl:Class ;
-  rdfs:label "Customer Lifecycle"^^xsd:string ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:label "Acquisition"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:DevelopPhase
+cjo:Advertisement
   rdf:type owl:Class ;
-  rdfs:label "Develop"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:label "Advertisement"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:RecommendPhase
- rdf:type owl:Class ;
- rdfs:label "Recommend"^^xsd:string ;
- rdfs:subClassOf cjo:CustomerLifecycle ;
-.
-
-cjo:MaintainPhase
+cjo:Advice
   rdf:type owl:Class ;
-  rdfs:label "Maintain"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:label "Advice"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:UsePhase
+cjo:Audio
   rdf:type owl:Class ;
-  rdfs:label "Use"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Audio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
 .
-
-cjo:ReceivePhase
+cjo:BrokerService
   rdf:type owl:Class ;
-  rdfs:label "Receive"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Broker Service"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
 .
-
-cjo:PurchasePhase
+cjo:CommunicationCategory
   rdf:type owl:Class ;
-  rdfs:label "Purchase"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:label "Communication CommunicationChannel Category"^^xsd:string ;
+  rdfs:subClassOf cjo:Communication ;
 .
-
-cjo:SelectPhase
+cjo:CommunicationChannel
   rdf:type owl:Class ;
-  rdfs:label "Select"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:label "CommunicationChannel"^^xsd:string ;
+  rdfs:subClassOf cjo:Communication ;
 .
-
-cjo:ResearchPhase
+cjo:Communication
   rdf:type owl:Class ;
-  rdfs:label "Research"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
+  rdfs:label "Communication CommunicationChannel"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
 .
-
-cjo:NeedPhase
-  rdf:type owl:Class ;
-  rdfs:label "Need"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerLifecycle ;
-.
-
-#cjo:hasReferencedCustomerLifecycle
-#  rdf:type owl:ObjectProperty ;
-#  rdfs:domain owl:Thing ;
-#  rdfs:label "hasReferencedCustomerLifecycle"^^xsd:string ;
-#  rdfs:range cjo:CustomerLifecycle ;
-#.
-
-# == END Customer Lifecycle ==
-
-# == Stage and Path ==
-cjo:Stage
-  rdf:type owl:Class ;
-  rdfs:label "Stage"^^xsd:string ;
-  rdfs:subClassOf owl:Thing ;
-.
-
-cjo:hasReferencedStage
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedStage"^^xsd:string ;
-  rdfs:range cjo:Stage ;
-.
-
-cjo:Path
-  rdf:type owl:Class ;
-  rdfs:label "Path"^^xsd:string ;
-  rdfs:subClassOf owl:Thing ;
-.
-
-cjo:hasReferencedPath
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedPath"^^xsd:string ;
-  rdfs:range cjo:Path ;
-.
-
-# == END Stage ==
-
-# == Actors ==
-
-cjo:ThirdPartyProvider
-  rdf:type owl:Class ;
-  rdfs:label "Third Party Provider"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
-.
-
-cjo:ThirdPartyPerson
-  rdf:type owl:Class ;
-  rdfs:label "Third Party Person"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
-.
-
-cjo:InternalActor
-  rdf:type owl:Class ;
-  rdfs:label "Internal Actor"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
-.
-
-cjo:Persona
-  rdf:type owl:Class ;
-  rdfs:label "Customer"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
-  owl:equivalentClass eo:Person ;
-.
-
-# == END Actors ==
-
-# == Product/Service - Customer Journey Mapping ==
-cjo:ProductServiceJourneyMapping
-  rdf:type owl:Class ;
-  rdfs:label "Product/Service Journey Mapping"^^xsd:string ;
-  rdfs:subClassOf owl:Thing ;
-.
-
-cjo:hasProductServiceJourneyMapping
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasProductServiceJourneyMapping"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
-.
-
-cjo:hasReferencedProductService
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedProductService"^^xsd:string ;
-  rdfs:range archi:Product ;
-.
-# == END Product/Service - Customer Journey Mapping ==
-
-# == Customer Journey ==
 cjo:CustomerJourney
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Status"^^xsd:string ;
   rdfs:subClassOf bpmn:Process ;
 .
-
-cjo:hasReferencedCustomerJourney
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedCustomerJourney"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
-.
-
-cjo:hasReferencedActivity
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedActivity"^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
-
-# == END Customer Journey ==
-
-# == Customer Journey Episode ==
-
 cjo:CustomerJourneyEpisode
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Episode"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerJourney ;
 .
-
-cjo:Touchpoint
+cjo:CustomerLifecycle
   rdf:type owl:Class ;
-  rdfs:label "Touchpoint"^^xsd:string ;
-  rdfs:subClassOf cjo:Touchpoint ;
+  rdfs:label "Customer Lifecycle"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInteraction ;
 .
-
-cjo:ActiveTouchpoint
+cjo:CustomerService
   rdf:type owl:Class ;
-  rdfs:label "Active Touchpoint"^^xsd:string ;
-  rdfs:subClassOf cjo:Touchpoint ;
+  rdfs:label "Customer Service"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:PassiveTouchpoint
+cjo:DataObjectContainsDataElement
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectContainsDataElement"^^xsd:string ;
+  rdfs:range eo:DataElement ;
+.
+cjo:DataObjectUsesCommunicationChannel
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectUsesCommunicationChannel"^^xsd:string ;
+  rdfs:range cjo:CommunicationChannel ;
+.
+cjo:Delivery
   rdf:type owl:Class ;
-  rdfs:label "Passive Touchpoint"^^xsd:string ;
-  rdfs:subClassOf cjo:Touchpoint ;
+  rdfs:label "Delivery"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:hasTouchpointType
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasTouchpointType"^^xsd:string ;
-  rdfs:range cjo:Touchpoint ;
+cjo:Develop
+  rdf:type owl:Class ;
+  rdfs:label "Develop"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
 .
-
-cjo:hasReferencedTouchpoint
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedTouchpoint"^^xsd:string ;
-  rdfs:range cjo:Touchpoint ;
+cjo:DevelopPhase
+  rdf:type owl:Class ;
+  rdfs:label "Develop"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
 .
-
-cjo:hasReferencedCustomerJourneyEpisode
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedCustomerJourneyEpisode"^^xsd:string ;
-  rdfs:range cjo:CustomerJourneyEpisode ;
+cjo:Email
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Email"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
 .
-
-cjo:hasReferencedDataObject
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedDataObject"^^xsd:string ;
-  rdfs:range archi:DataObject ;
-.
-
-cjo:hasReferencedDataSet
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedDataSet"^^xsd:string ;
-  rdfs:range eo:DataSet ;
-.
-
-cjo:hasReferencedActor
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedActor"^^xsd:string ;
-  rdfs:range owl:Thing ;
-.
-
-# == Experience Rating attributes and properties ==
-
 cjo:ExperienceRating
   rdf:type owl:Class ;
   rdfs:label "ExperienceRating"^^xsd:string ;
   rdfs:subClassOf archi:Value ;
 .
-
-cjo:hasExperienceRating
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasExperienceRating"^^xsd:string ;
-  rdfs:range cjo:ExperienceRating ;
-.
-
-cjo:hasExperienceValueNumber
+cjo:ExperienceRatingHasExperienceValueNumber
   rdf:type rdf:Property ;
+  rdfs:domain cjo:ExperienceRating ;
   rdfs:label "hasValueNumber"^^xsd:string ;
   rdfs:range xsd:integer ;
 .
-
-cjo:verydissatisfied
-  rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 0 ;
-  rdfs:label "very dissatisfied"^^xsd:string ;
+cjo:FaceToFace
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "FaceToFace"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Film
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Film"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Information
+  rdf:type owl:Class ;
+  rdfs:label "Information"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:InsideAssociation
+  rdf:type owl:Class ;
+  rdfs:label "InsideAssociation"^^xsd:string ;
+  rdfs:subClassOf archi:OtherRelationships ;
+.
+cjo:InternalActor
+  rdf:type owl:Class ;
+  rdfs:label "Internal Actor"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+cjo:Magazine
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Magazine"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:MaintainPhase
+  rdf:type owl:Class ;
+  rdfs:label "Maintain"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:NeedPhase
+  rdf:type owl:Class ;
+  rdfs:label "Need"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:Newspaper
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Newspaper"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Offline
+  rdf:type owl:Class ;
+  rdfs:label "Offline"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationCategory ;
+.
+cjo:Online
+  rdf:type owl:Class ;
+  rdfs:label "online"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationCategory ;
+.
+cjo:Order
+  rdf:type owl:Class ;
+  rdfs:label "Order"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:Path
+  rdf:type owl:Class ;
+  rdfs:label "Path"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInteraction ;
+.
+cjo:PathBelongsToStage
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Path ;
+  rdfs:label "hasReferencedStage"^^xsd:string ;
+  rdfs:range cjo:Stage ;
+.
+cjo:PathBelongsToCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Path ;
+  rdfs:label "PathBelongsCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+cjo:ActivityBelongsToCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain bpmn:Activity ;
+  rdfs:label "ActivityBelongsCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+cjo:Persona
+  rdf:type owl:Class ;
+  rdfs:label "Customer"^^xsd:string ;
+  rdfs:subClassOf eo:Person ;
+.
+cjo:PersonaHasProductServiceJourneyMapping
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Persona ;
+  rdfs:label "PersonaHasProductServiceJourneyMapping"^^xsd:string ;
+  rdfs:range cjo:ProductServiceJourneyMapping ;
+.
+cjo:PoolBelongsToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain bpmn:Pool ;
+  rdfs:label "PoolBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
 .
 
+cjo:DataObjectBelongsToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
+
+cjo:TouchpointBelongsToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "PoolBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
+
+cjo:ProductServiceJourneyMapping
+  rdf:type owl:Class ;
+  rdfs:label "Product/Service Journey Mapping"^^xsd:string ;
+  rdfs:subClassOf archi:Value ;
+.
+cjo:ProductServiceJourneyMappingHasCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:ProductServiceJourneyMapping ;
+  rdfs:label "ProductServiceJourneyMappingHasCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+cjo:ProductServiceJourneyMappingHasProductService
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:ProductServiceJourneyMapping ;
+  rdfs:label "ProductServiceJourneyMappingHasProductService"^^xsd:string ;
+  rdfs:range archi:Product ;
+.
+cjo:Promotion
+  rdf:type owl:Class ;
+  rdfs:label "Promotion"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:PublishedMedia
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Published Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:PurchasePhase
+  rdf:type owl:Class ;
+  rdfs:label "Purchase"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:Radio
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Radio"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:RatingService
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Rating Service"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:ReceivePhase
+  rdf:type owl:Class ;
+  rdfs:label "Receive"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:RecommendPhase
+  rdf:type owl:Class ;
+  rdfs:label "Recommend"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:ResearchPhase
+  rdf:type owl:Class ;
+  rdfs:label "Research"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:Reservation
+  rdf:type owl:Class ;
+  rdfs:label "Reservation"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:CommunicationRole
+  rdf:type owl:Class ;
+  rdfs:label "Communication CommunicationChannel CommunicationRole"^^xsd:string ;
+  rdfs:subClassOf cjo:Communication ;
+.
+cjo:SelectPhase
+  rdf:type owl:Class ;
+  rdfs:label "Select"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:SocialMedia
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Social Media"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Stage
+  rdf:type owl:Class ;
+  rdfs:label "Stage"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInteraction ;
+.
+cjo:Support
+  rdf:type owl:Class ;
+  rdfs:label "Support"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:Telephone
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Telephone"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Television
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Television"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:ThirdPartyPerson
+  rdf:type owl:Class ;
+  rdfs:label "Third Party Person"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+cjo:ThirdPartyProvider
+  rdf:type owl:Class ;
+  rdfs:label "Third Party Provider"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessActor ;
+.
+cjo:Touchpoint
+  rdf:type owl:Class ;
+  rdfs:label "Touchpoint"^^xsd:string ;
+  rdfs:subClassOf bpmn:Task ;
+.
+cjo:ActivityLinksToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain bpmn:Activity ;
+  rdfs:label "ActivityBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
+cjo:TouchpointHasExperienceRating
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "hasExperienceRating"^^xsd:string ;
+  rdfs:range cjo:ExperienceRating ;
+.
+cjo:UsePhase
+  rdf:type owl:Class ;
+  rdfs:label "Use"^^xsd:string ;
+  rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:Video
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Video"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Website
+  rdf:type owl:Class ;
+  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
+  rdfs:label "Website"^^xsd:string ;
+  rdfs:subClassOf cjo:CommunicationChannel ;
+.
 cjo:dissatisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 1 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 1 ;
   rdfs:label "dissatisfied"^^xsd:string ;
 .
-
 cjo:neutral
   rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 2 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 2 ;
   rdfs:label "neutral"^^xsd:string ;
 .
-
 cjo:satisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 3 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 3 ;
   rdfs:label "satisfied"^^xsd:string ;
 .
-
-cjo:verysatisfied 
+cjo:verydissatisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:hasExperienceValueNumber 4 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 0 ;
+  rdfs:label "very dissatisfied"^^xsd:string ;
+.
+cjo:verysatisfied
+  rdf:type cjo:ExperienceRating ;
+  cjo:ExperienceRatingHasExperienceValueNumber 4 ;
   rdfs:label "very satisfied "^^xsd:string ;
 .
 
-# == END Customer Journey Episode ==
-
-# == Communication Channel ==
-
-cjo:CommunicationChannel
-  rdf:type owl:Class ;
-  rdfs:label "Communication Channel"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessInterface ;
-.
-
-cjo:hasReferencedCommunicationChannel
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain owl:Thing ;
-  rdfs:label "hasReferencedCommunicationChannel"^^xsd:string ;
-  rdfs:range cjo:CommunicationChannel ;
-.
-
-cjo:FaceToFace
-  rdf:type owl:Class ;
-  rdfs:label "FaceToFace"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Telephone
-  rdf:type owl:Class ;
-  rdfs:label "Telephone"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:SocialMedia
-  rdf:type owl:Class ;
-  rdfs:label "Social Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Email
-  rdf:type owl:Class ;
-  rdfs:label "Social Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Television
-  rdf:type owl:Class ;
-  rdfs:label "Television"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Video
-  rdf:type owl:Class ;
-  rdfs:label "Video"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Film
-  rdf:type owl:Class ;
-  rdfs:label "Film"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Radio
-  rdf:type owl:Class ;
-  rdfs:label "Radio"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Audio
-  rdf:type owl:Class ;
-  rdfs:label "Audio"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:PublishedMedia
-  rdf:type owl:Class ;
-  rdfs:label "Published Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Magazine
-  rdf:type owl:Class ;
-  rdfs:label "Magazine"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Newspaper
-  rdf:type owl:Class ;
-  rdfs:label "Newspaper"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:Website
-  rdf:type owl:Class ;
-  rdfs:label "Published Media"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:BrokerService
-  rdf:type owl:Class ;
-  rdfs:label "Magazine"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:RatingService
-  rdf:type owl:Class ;
-  rdfs:label "Newspaper"^^xsd:string ;
-  rdfs:subClassOf cjo:CommunicationChannel ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-# == END Communication Channel ==
-
-# == NEW TOPIC  ==
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-cjo:CustomerJourneyStatus
-  rdf:type owl:Class ;
-  rdfs:label "Customer Journey Status"^^xsd:string ;
-  rdfs:subClassOf cjo:CustomerJourney ;
-.
-
-cjo:InProgress
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "InProgress"^^xsd:string ;
-.
-
-cjo:Aborted
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "Aborted"^^xsd:string ;
-.
-
-cjo:InProgress
-  rdf:type cjo:CustomerJourneyStatus ;
-  rdfs:label "InProgress"^^xsd:string ;
-.
-
-
-
-
-# == Device attributes ==
-
-cjo:PersonaHasDevice
+cjo:PathContainsActivity
   rdf:type rdf:Property ;
-  rdfs:label "Persona has device"^^xsd:string ;
-  rdfs:range cjo:Device ;
+  rdfs:domain cjo:Path ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range bpmn:Activity ;
 .
 
-# == END Device attributes ==
-
-# == Demographic attributes ==
-
-cjo:PersonaHasBirthDate
+cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
   rdf:type rdf:Property ;
-  rdfs:label "PersonaHasBirthDate"^^xsd:string ;
-  rdfs:range xsd:date ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
 .
 
-cjo:Demographics
-  rdf:type owl:Class ;
-  rdfs:label "Demographic"^^xsd:string ;
-  rdfs:subClassOf cjo:Persona ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
 
-cjo:ResidentialStatus
-  rdf:type owl:Class ;
-  rdfs:label "Residential Status"^^xsd:string ;
-  rdfs:subClassOf cjo:Demographics ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:PersonaHasResidentialStatus
+cjo:PersonaPerformsCustomerJourneyEpisode
   rdf:type rdf:Property ;
-  rdfs:label "Persona has residential status"^^xsd:string ;
-  rdfs:range cjo:ResidentialStatus ;
+  rdfs:domain  cjo:Persona;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
 .
-
-cjo:LivingWithParents
-  rdf:type cjo:ResidentialStatus ;
-  rdfs:label "Living with parents"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:LivingAloneWithoutPartner
-  rdf:type cjo:ResidentialStatus ;
-  rdfs:label "Living alone without partner"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:LivingAloneWithPartner
-  rdf:type cjo:ResidentialStatus ;
-  rdfs:label "Living alone with partner"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:SharingFlatWithFlatmates
-  rdf:type cjo:ResidentialStatus ;
-  rdfs:label "Sharing flat with flatmates"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:SharingFlatWithTenants
-  rdf:type cjo:ResidentialStatus ;
-  rdfs:label "Sharing flat with tenants"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:MaritalStatus
-  rdf:type owl:Class ;
-  rdfs:label "Marital Status"^^xsd:string ;
-  rdfs:subClassOf cjo:Demographics ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:PersonaHasMaritalStatus
+cjo:PersonaPerformsCustomerJourney
   rdf:type rdf:Property ;
-  rdfs:label "Persona has marital status"^^xsd:string ;
-  rdfs:range cjo:MaritalStatus ;
+  rdfs:domain  cjo:Persona;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
 .
-
-cjo:MarriedCivilPartnershipLivingWithPartner
-  rdf:type cjo:MaritalStatus ;
-  rdfs:label "Married/civil partnership/living with partner"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:SingleWidowedDivorsedSeperated
-  rdf:type cjo:MaritalStatus ;
-  rdfs:label "Single/Widowed/Divorsed/Seperated"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:WorkingStatus
-  rdf:type owl:Class ;
-  rdfs:label "Working Status"^^xsd:string ;
-  rdfs:subClassOf cjo:Demographics ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
-.
-
-cjo:PersonaHasWorkingStatus
+cjo:PersonaPerformsActivity
   rdf:type rdf:Property ;
-  rdfs:label "Persona has working status"^^xsd:string ;
-  rdfs:range cjo:WorkingStatus ;
+  rdfs:domain cjo:Persona ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range bpmn:Activity  ;
 .
 
-cjo:WorkingFullTime
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "Full time (30+ hours per week)"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:TouchpointHasSystemSoftwareActor
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointHasSystemSoftwareActor"^^xsd:string ;
+  rdfs:range archi:SystemSoftware ;
 .
 
-cjo:WorkingPartTime
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "Part time (8-29 hours per week)"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:TouchpointHasBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointHasBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
 .
 
-cjo:WorkingPartTimeLight
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "Part time (under 8 hours per week)"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:TouchpointSendsDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointSendsDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
 .
 
-cjo:NoPaidWork
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "No paid work"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:TouchpointReceivesDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointReceivesDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
 .
 
-cjo:Retired
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "Retired"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:TouchpointIncludesDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointIncludesDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
 .
 
-cjo:Housewife
-  rdf:type cjo:WorkingStatus ;
-  rdfs:label "Housewife"^^xsd:string ;
-  rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en;
+cjo:DataObjectIsSentByBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
 .
 
-# == END Demographic attributes ==
-
-cjo:DataClassification
-  rdf:type owl:Class ;
-  rdfs:label "Data Classification"^^xsd:string ;
-  rdfs:subClassOf archi:DataObject ;
-.
-
-cjo:CommunicationChannelRole
-  rdf:type owl:Class ;
-  rdfs:label "Communication Channel Role"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessInterface ;
-.
-
-cjo:Acquisition
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Acquisition"^^xsd:string ;
-.
-
-cjo:Advertisement
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Advertisement"^^xsd:string ;
-.
-
-cjo:Advice
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Advice"^^xsd:string ;
-.
-
-cjo:CustomerService
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Customer Service"^^xsd:string ;
-.
-
-cjo:Delivery
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Delivery"^^xsd:string ;
-.
-
-cjo:Develop
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Develop"^^xsd:string ;
-.
-
-cjo:Information
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Information"^^xsd:string ;
-.
-
-cjo:Order
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Order"^^xsd:string ;
-.
-
-cjo:Promotion
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Promotion"^^xsd:string ;
-.
-
-cjo:Reservation
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Reservation"^^xsd:string ;
-.
-
-cjo:Support
-  rdf:type cjo:CommunicationChannelRole ;
-  rdfs:label "Support"^^xsd:string ;
-.
-
-cjo:CommunicationChannelCategory
-  rdf:type owl:Class ;
-  rdfs:label "Communication Channel Category"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessInterface ;
-.
-
-cjo:offline
-  rdf:type cjo:CommunicationChannelCategory ;
-  rdfs:label "Offline"^^xsd:string ;
-.
-
-cjo:online
-  rdf:type cjo:CommunicationChannelCategory ;
-  rdfs:label "online"^^xsd:string ;
+cjo:DataObjectIsReceivedByBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
 .
 
 
 
-cjo:Device
-  rdf:type owl:Class ;
-  rdfs:label "Device"^^xsd:string ;
-  rdfs:subClassOf top:Location ;
-.
 
-cjo:LaptopMac
-  rdf:type owl:Class ;
-  rdfs:label "Laptop/Mac"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:Tablet
-  rdf:type owl:Class ;
-  rdfs:label "Tablet"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:MobilePhone
-  rdf:type owl:Class ;
-  rdfs:label "Mobile Phone"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:Handheld
-  rdf:type owl:Class ;
-  rdfs:label "Handheld"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:GameConsole
-  rdf:type owl:Class ;
-  rdfs:label "Game Console"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:RadioDevice
-  rdf:type owl:Class ;
-  rdfs:label "Radio Device"^^xsd:string ;
-  rdfs:subClassOf cjo:Device ;
-.
-
-cjo:PhysicalTangible
-  rdf:type owl:Class ;
-  rdfs:label "Physical/Tangible"^^xsd:string ;
-  rdfs:subClassOf eo:ValueProposition ;
-.
-
-cjo:Intangible
-  rdf:type owl:Class ;
-  rdfs:label "Intangible"^^xsd:string ;
-  rdfs:subClassOf eo:ValueProposition ;
-.
-
-cjo:Digital
-  rdf:type owl:Class ;
-  rdfs:label "Digital"^^xsd:string ;
-  rdfs:subClassOf eo:ValueProposition ;
-.
-
-cjo:Financial
-  rdf:type owl:Class ;
-  rdfs:label "Financial"^^xsd:string ;
-  rdfs:subClassOf eo:ValueProposition ;
-.
 
 
 
