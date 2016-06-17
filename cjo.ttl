@@ -30,12 +30,24 @@
 <http://lammel.ch/cjo>
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
-  owl:versionInfo "First version" ;
+  owl:versionInfo "0.3"^^xsd:string ;
 .
 cjo:Acquisition
   rdf:type owl:Class ;
   rdfs:label "Acquisition"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:ActivityBelongsToCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain bpmn:Activity ;
+  rdfs:label "ActivityBelongsCustomerJourney"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+cjo:ActivityLinksToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain bpmn:Activity ;
+  rdfs:label "ActivityBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
 .
 cjo:Advertisement
   rdf:type owl:Class ;
@@ -59,6 +71,11 @@ cjo:BrokerService
   rdfs:label "Broker Service"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
 .
+cjo:Communication
+  rdf:type owl:Class ;
+  rdfs:label "Communication CommunicationChannel"^^xsd:string ;
+  rdfs:subClassOf archi:BusinessInterface ;
+.
 cjo:CommunicationCategory
   rdf:type owl:Class ;
   rdfs:label "Communication CommunicationChannel Category"^^xsd:string ;
@@ -69,10 +86,10 @@ cjo:CommunicationChannel
   rdfs:label "CommunicationChannel"^^xsd:string ;
   rdfs:subClassOf cjo:Communication ;
 .
-cjo:Communication
+cjo:CommunicationRole
   rdf:type owl:Class ;
-  rdfs:label "Communication CommunicationChannel"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessInterface ;
+  rdfs:label "Communication CommunicationChannel CommunicationRole"^^xsd:string ;
+  rdfs:subClassOf cjo:Communication ;
 .
 cjo:CustomerJourney
   rdf:type owl:Class ;
@@ -84,6 +101,12 @@ cjo:CustomerJourneyEpisode
   rdfs:label "Customer Journey Episode"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerJourney ;
 .
+cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
 cjo:CustomerLifecycle
   rdf:type owl:Class ;
   rdfs:label "Customer Lifecycle"^^xsd:string ;
@@ -94,11 +117,29 @@ cjo:CustomerService
   rdfs:label "Customer Service"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationRole ;
 .
+cjo:DataObjectBelongsToCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
 cjo:DataObjectContainsDataElement
   rdf:type rdf:Property ;
   rdfs:domain archi:DataObject ;
   rdfs:label "DataObjectContainsDataElement"^^xsd:string ;
   rdfs:range eo:DataElement ;
+.
+cjo:DataObjectIsReceivedByBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
+.
+cjo:DataObjectIsSentByBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
 .
 cjo:DataObjectUsesCommunicationChannel
   rdf:type rdf:Property ;
@@ -207,23 +248,23 @@ cjo:Path
   rdfs:label "Path"^^xsd:string ;
   rdfs:subClassOf archi:BusinessInteraction ;
 .
-cjo:PathBelongsToStage
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Path ;
-  rdfs:label "hasReferencedStage"^^xsd:string ;
-  rdfs:range cjo:Stage ;
-.
 cjo:PathBelongsToCustomerJourney
   rdf:type rdf:Property ;
   rdfs:domain cjo:Path ;
   rdfs:label "PathBelongsCustomerJourney"^^xsd:string ;
   rdfs:range cjo:CustomerJourney ;
 .
-cjo:ActivityBelongsToCustomerJourney
+cjo:PathBelongsToStage
   rdf:type rdf:Property ;
-  rdfs:domain bpmn:Activity ;
-  rdfs:label "ActivityBelongsCustomerJourney"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
+  rdfs:domain cjo:Path ;
+  rdfs:label "hasReferencedStage"^^xsd:string ;
+  rdfs:range cjo:Stage ;
+.
+cjo:PathContainsActivity
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Path ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range bpmn:Activity ;
 .
 cjo:Persona
   rdf:type owl:Class ;
@@ -236,27 +277,30 @@ cjo:PersonaHasProductServiceJourneyMapping
   rdfs:label "PersonaHasProductServiceJourneyMapping"^^xsd:string ;
   rdfs:range cjo:ProductServiceJourneyMapping ;
 .
+cjo:PersonaPerformsActivity
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Persona ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range bpmn:Activity ;
+.
+cjo:PersonaPerformsCustomerJourney
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Persona ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourney ;
+.
+cjo:PersonaPerformsCustomerJourneyEpisode
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Persona ;
+  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:range cjo:CustomerJourneyEpisode ;
+.
 cjo:PoolBelongsToCustomerJourneyEpisode
   rdf:type rdf:Property ;
   rdfs:domain bpmn:Pool ;
   rdfs:label "PoolBelongsToCustomerJourneyEpisode"^^xsd:string ;
   rdfs:range cjo:CustomerJourneyEpisode ;
 .
-
-cjo:DataObjectBelongsToCustomerJourneyEpisode
-  rdf:type rdf:Property ;
-  rdfs:domain archi:DataObject ;
-  rdfs:label "DataObjectBelongsToCustomerJourneyEpisode"^^xsd:string ;
-  rdfs:range cjo:CustomerJourneyEpisode ;
-.
-
-cjo:TouchpointBelongsToCustomerJourneyEpisode
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "PoolBelongsToCustomerJourneyEpisode"^^xsd:string ;
-  rdfs:range cjo:CustomerJourneyEpisode ;
-.
-
 cjo:ProductServiceJourneyMapping
   rdf:type owl:Class ;
   rdfs:label "Product/Service Journey Mapping"^^xsd:string ;
@@ -322,11 +366,6 @@ cjo:Reservation
   rdfs:label "Reservation"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationRole ;
 .
-cjo:CommunicationRole
-  rdf:type owl:Class ;
-  rdfs:label "Communication CommunicationChannel CommunicationRole"^^xsd:string ;
-  rdfs:subClassOf cjo:Communication ;
-.
 cjo:SelectPhase
   rdf:type owl:Class ;
   rdfs:label "Select"^^xsd:string ;
@@ -375,17 +414,49 @@ cjo:Touchpoint
   rdfs:label "Touchpoint"^^xsd:string ;
   rdfs:subClassOf bpmn:Task ;
 .
-cjo:ActivityLinksToCustomerJourneyEpisode
+cjo:TouchpointBelongsToCustomerJourneyEpisode
   rdf:type rdf:Property ;
-  rdfs:domain bpmn:Activity ;
-  rdfs:label "ActivityBelongsToCustomerJourneyEpisode"^^xsd:string ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "PoolBelongsToCustomerJourneyEpisode"^^xsd:string ;
   rdfs:range cjo:CustomerJourneyEpisode ;
+.
+cjo:TouchpointHasBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointHasBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
 .
 cjo:TouchpointHasExperienceRating
   rdf:type rdf:Property ;
   rdfs:domain cjo:Touchpoint ;
   rdfs:label "hasExperienceRating"^^xsd:string ;
   rdfs:range cjo:ExperienceRating ;
+.
+cjo:TouchpointHasSystemSoftwareActor
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointHasSystemSoftwareActor"^^xsd:string ;
+  rdfs:range archi:SystemSoftware ;
+.
+cjo:TouchpointIncludesDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointIncludesDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+.
+cjo:TouchpointReceivesDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointReceivesDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
+.
+cjo:TouchpointSendsDataObject
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:Touchpoint ;
+  rdfs:label "TouchpointSendsDataObject"^^xsd:string ;
+  rdfs:range archi:DataObject ;
+  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
 .
 cjo:UsePhase
   rdf:type owl:Class ;
@@ -429,96 +500,3 @@ cjo:verysatisfied
   cjo:ExperienceRatingHasExperienceValueNumber 4 ;
   rdfs:label "very satisfied "^^xsd:string ;
 .
-
-cjo:PathContainsActivity
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Path ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
-  rdfs:range bpmn:Activity ;
-.
-
-cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
-.
-
-
-cjo:PersonaPerformsCustomerJourneyEpisode
-  rdf:type rdf:Property ;
-  rdfs:domain  cjo:Persona;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
-  rdfs:range cjo:CustomerJourneyEpisode ;
-.
-cjo:PersonaPerformsCustomerJourney
-  rdf:type rdf:Property ;
-  rdfs:domain  cjo:Persona;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
-  rdfs:range cjo:CustomerJourney ;
-.
-cjo:PersonaPerformsActivity
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Persona ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
-  rdfs:range bpmn:Activity  ;
-.
-
-cjo:TouchpointHasSystemSoftwareActor
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "TouchpointHasSystemSoftwareActor"^^xsd:string ;
-  rdfs:range archi:SystemSoftware ;
-.
-
-cjo:TouchpointHasBusinessActor
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "TouchpointHasBusinessActor"^^xsd:string ;
-  rdfs:range archi:BusinessActor ;
-.
-
-cjo:TouchpointSendsDataObject
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "TouchpointSendsDataObject"^^xsd:string ;
-  rdfs:range archi:DataObject ;
-  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
-.
-
-cjo:TouchpointReceivesDataObject
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "TouchpointReceivesDataObject"^^xsd:string ;
-  rdfs:range archi:DataObject ;
-  rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
-.
-
-cjo:TouchpointIncludesDataObject
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:Touchpoint ;
-  rdfs:label "TouchpointIncludesDataObject"^^xsd:string ;
-  rdfs:range archi:DataObject ;
-.
-
-cjo:DataObjectIsSentByBusinessActor
-  rdf:type rdf:Property ;
-  rdfs:domain archi:DataObject ;
-  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
-  rdfs:range archi:BusinessActor ;
-.
-
-cjo:DataObjectIsReceivedByBusinessActor
-  rdf:type rdf:Property ;
-  rdfs:domain archi:DataObject ;
-  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
-  rdfs:range archi:BusinessActor ;
-.
-
-
-
-
-
-
-
-
