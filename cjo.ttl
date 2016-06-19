@@ -30,7 +30,7 @@
 <http://lammel.ch/cjo>
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
-  owl:versionInfo "0.3"^^xsd:string ;
+  owl:versionInfo "0.4"^^xsd:string ;
 .
 cjo:Acquisition
   rdf:type owl:Class ;
@@ -86,6 +86,12 @@ cjo:CommunicationChannel
   rdfs:label "CommunicationChannel"^^xsd:string ;
   rdfs:subClassOf cjo:Communication ;
 .
+cjo:CommunicationChannelHasBusinessPartner
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CommunicationChannel ;
+  rdfs:label "CommunicationChannelHasBusinessPartner"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
+.
 cjo:CommunicationRole
   rdf:type owl:Class ;
   rdfs:label "Communication CommunicationChannel CommunicationRole"^^xsd:string ;
@@ -129,17 +135,51 @@ cjo:DataObjectContainsDataElement
   rdfs:label "DataObjectContainsDataElement"^^xsd:string ;
   rdfs:range eo:DataElement ;
 .
+cjo:DataObjectInvolvesBusinessActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectInvolvesBusinessActor"^^xsd:string ;
+  rdfs:range archi:BusinessActor ;
+.
+cjo:DataObjectInvolvesSystemSoftwareActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectInvolvesSystemSoftwareActor"^^xsd:string ;
+  rdfs:range archi:SystemSoftware ;
+.
+cjo:DataObjectIsPartOfStage
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsPartOfStage"^^xsd:string ;
+  rdfs:range cjo:Stage ;
+.
 cjo:DataObjectIsReceivedByBusinessActor
   rdf:type rdf:Property ;
   rdfs:domain archi:DataObject ;
-  rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
+  rdfs:label "DataObjectIsReceivedByBusinessActor"^^xsd:string ;
   rdfs:range archi:BusinessActor ;
+  rdfs:subPropertyOf cjo:DataObjectInvolvesBusinessActor ;
+.
+cjo:DataObjectIsReceivedBySystemSoftwareActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsReceivedBySystemSoftwareActor"^^xsd:string ;
+  rdfs:range archi:SystemSoftware ;
+  rdfs:subPropertyOf cjo:DataObjectInvolvesSystemSoftwareActor ;
 .
 cjo:DataObjectIsSentByBusinessActor
   rdf:type rdf:Property ;
   rdfs:domain archi:DataObject ;
   rdfs:label "DataObjectIsSentByBusinessActor"^^xsd:string ;
   rdfs:range archi:BusinessActor ;
+  rdfs:subPropertyOf cjo:DataObjectInvolvesBusinessActor ;
+.
+cjo:DataObjectIsSentBySystemSoftwareActor
+  rdf:type rdf:Property ;
+  rdfs:domain archi:DataObject ;
+  rdfs:label "DataObjectIsSentBySystemSoftwareActor"^^xsd:string ;
+  rdfs:range archi:SystemSoftware ;
+  rdfs:subPropertyOf cjo:DataObjectInvolvesSystemSoftwareActor ;
 .
 cjo:DataObjectUsesCommunicationChannel
   rdf:type rdf:Property ;
@@ -204,7 +244,7 @@ cjo:InsideAssociation
 cjo:InternalActor
   rdf:type owl:Class ;
   rdfs:label "Internal Actor"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
+  rdfs:subClassOf eo:Person ;
 .
 cjo:Magazine
   rdf:type owl:Class ;
@@ -402,12 +442,12 @@ cjo:Television
 cjo:ThirdPartyPerson
   rdf:type owl:Class ;
   rdfs:label "Third Party Person"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
+  rdfs:subClassOf eo:Person ;
 .
 cjo:ThirdPartyProvider
   rdf:type owl:Class ;
   rdfs:label "Third Party Provider"^^xsd:string ;
-  rdfs:subClassOf archi:BusinessActor ;
+  rdfs:subClassOf eo:LegalEntity ;
 .
 cjo:Touchpoint
   rdf:type owl:Class ;
