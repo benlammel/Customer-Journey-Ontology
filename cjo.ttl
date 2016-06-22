@@ -30,7 +30,7 @@
 <http://lammel.ch/cjo>
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
-  owl:versionInfo "0.41"^^xsd:string ;
+  owl:versionInfo "0.42"^^xsd:string ;
 .
 cjo:Acquisition
   rdf:type owl:Class ;
@@ -106,6 +106,186 @@ cjo:CustomerJourneyEpisode
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Episode"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerJourney ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorCatchingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorCatchingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorCatchingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorCatchingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorCatchingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActoraCatchingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorThrowingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorThrowingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaCatchingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaCatchingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaCatchingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaThrowingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaThrowingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasPersonaThrowingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorThrowingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorThrowingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingExecutionTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingExecutionTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingRestingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingRestingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
+.
+cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingWaitingTime
+  rdf:type rdf:Property ;
+  rdfs:domain cjo:CustomerJourneyEpisode ;
+  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingWaitingTime"^^xsd:string ;
+  rdfs:range xsd:integer ;
 .
 cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
   rdf:type rdf:Property ;
