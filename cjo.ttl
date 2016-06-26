@@ -30,7 +30,7 @@
 <http://lammel.ch/cjo>
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
-  owl:versionInfo "0.42"^^xsd:string ;
+  owl:versionInfo "0.43"^^xsd:string ;
 .
 cjo:Acquisition
   rdf:type owl:Class ;
@@ -94,8 +94,13 @@ cjo:CommunicationChannelHasBusinessPartner
 .
 cjo:CommunicationRole
   rdf:type owl:Class ;
-  rdfs:label "Communication CommunicationChannel CommunicationRole"^^xsd:string ;
+  rdfs:label "CommunicationRole"^^xsd:string ;
   rdfs:subClassOf cjo:Communication ;
+.
+cjo:Coverage
+  rdf:type owl:Class ;
+  rdfs:label "Coverage"^^xsd:string ;
+  rdfs:subClassOf cjo:Reporting ;
 .
 cjo:CustomerJourney
   rdf:type owl:Class ;
@@ -106,186 +111,6 @@ cjo:CustomerJourneyEpisode
   rdf:type owl:Class ;
   rdfs:label "Customer Journey Episode"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerJourney ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerCatchingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerCatchingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasBusinessPartnerThrowingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasBusinessPartnerThrowingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorCatchingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorCatchingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorCatchingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorCatchingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorCatchingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActoraCatchingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorThrowingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorThrowingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaCatchingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaCatchingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaCatchingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaCatchingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaThrowingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaThrowingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasPersonaThrowingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasPersonaThrowingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorCatchingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorCatchingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorThrowingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasSystemSoftwareActorThrowingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasSystemSoftwareActorThrowingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasInternalActorThrowingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerCatchingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingExecutionTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingExecutionTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingRestingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingRestingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
-.
-cjo:CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingWaitingTime
-  rdf:type rdf:Property ;
-  rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "CustomerJourneyEpisodeHasThirdPartyNoBusinessPartnerThrowingWaitingTime"^^xsd:string ;
-  rdfs:range xsd:integer ;
 .
 cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
   rdf:type rdf:Property ;
@@ -302,6 +127,11 @@ cjo:CustomerService
   rdf:type owl:Class ;
   rdfs:label "Customer Service"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationRole ;
+.
+cjo:Data
+  rdf:type owl:Class ;
+  rdfs:label "Data"^^xsd:string ;
+  rdfs:subClassOf cjo:Reporting ;
 .
 cjo:DataObjectBelongsToCustomerJourneyEpisode
   rdf:type rdf:Property ;
@@ -388,11 +218,21 @@ cjo:DevelopPhase
   rdfs:label "Develop"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerLifecycle ;
 .
+cjo:Device
+  rdf:type owl:Class ;
+  rdfs:label "Device"^^xsd:string ;
+  rdfs:subClassOf top:Location ;
+.
 cjo:Email
   rdf:type owl:Class ;
   rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
   rdfs:label "Email"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
+.
+cjo:Experience
+  rdf:type owl:Class ;
+  rdfs:label "Experience"^^xsd:string ;
+  rdfs:subClassOf cjo:Reporting ;
 .
 cjo:ExperienceRating
   rdf:type owl:Class ;
@@ -417,6 +257,16 @@ cjo:Film
   rdfs:label "Film"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
 .
+cjo:GameConsole
+  rdf:type owl:Class ;
+  rdfs:label "Game Console"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
+cjo:Handheld
+  rdf:type owl:Class ;
+  rdfs:label "Handheld"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
 cjo:Information
   rdf:type owl:Class ;
   rdfs:label "Information"^^xsd:string ;
@@ -432,6 +282,11 @@ cjo:InternalActor
   rdfs:label "Internal Actor"^^xsd:string ;
   rdfs:subClassOf eo:Person ;
 .
+cjo:LaptopMac
+  rdf:type owl:Class ;
+  rdfs:label "Laptop/Mac"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
 cjo:Magazine
   rdf:type owl:Class ;
   rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
@@ -442,6 +297,11 @@ cjo:MaintainPhase
   rdf:type owl:Class ;
   rdfs:label "Maintain"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:MobilePhone
+  rdf:type owl:Class ;
+  rdfs:label "Mobile Phone"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
 .
 cjo:NeedPhase
   rdf:type owl:Class ;
@@ -454,6 +314,11 @@ cjo:Newspaper
   rdfs:label "Newspaper"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
 .
+cjo:NoDevice
+  rdf:type owl:Class ;
+  rdfs:label "No Device"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
 cjo:Offline
   rdf:type owl:Class ;
   rdfs:label "Offline"^^xsd:string ;
@@ -461,7 +326,7 @@ cjo:Offline
 .
 cjo:Online
   rdf:type owl:Class ;
-  rdfs:label "online"^^xsd:string ;
+  rdfs:label "Online"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationCategory ;
 .
 cjo:Order
@@ -521,6 +386,11 @@ cjo:PersonaPerformsCustomerJourneyEpisode
   rdfs:label "PathContainsToActivity"^^xsd:string ;
   rdfs:range cjo:CustomerJourneyEpisode ;
 .
+cjo:PhysicalTangible
+  rdf:type owl:Class ;
+  rdfs:label "Physical/Tangible"^^xsd:string ;
+  rdfs:subClassOf eo:ValueProposition ;
+.
 cjo:PoolBelongsToCustomerJourneyEpisode
   rdf:type rdf:Property ;
   rdfs:domain bpmn:Pool ;
@@ -566,6 +436,11 @@ cjo:Radio
   rdfs:label "Radio"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationChannel ;
 .
+cjo:RadioDevice
+  rdf:type owl:Class ;
+  rdfs:label "Radio Device"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
 cjo:RatingService
   rdf:type owl:Class ;
   rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
@@ -581,6 +456,11 @@ cjo:RecommendPhase
   rdf:type owl:Class ;
   rdfs:label "Recommend"^^xsd:string ;
   rdfs:subClassOf cjo:CustomerLifecycle ;
+.
+cjo:Reporting
+  rdf:type owl:Class ;
+  rdfs:label "Reporting"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
 .
 cjo:ResearchPhase
   rdf:type owl:Class ;
@@ -613,6 +493,11 @@ cjo:Support
   rdfs:label "Support"^^xsd:string ;
   rdfs:subClassOf cjo:CommunicationRole ;
 .
+cjo:Tablet
+  rdf:type owl:Class ;
+  rdfs:label "Tablet"^^xsd:string ;
+  rdfs:subClassOf cjo:Device ;
+.
 cjo:Telephone
   rdf:type owl:Class ;
   rdfs:comment "Source: Institute of Practitioners in Advertising, Touchpoint Navigator. Available at: http://www.ipa.co.uk/framework/sections/touchpoints/navigator.aspx [Accessed May 7, 2016]."@en ;
@@ -634,6 +519,11 @@ cjo:ThirdPartyProvider
   rdf:type owl:Class ;
   rdfs:label "Third Party Provider"^^xsd:string ;
   rdfs:subClassOf eo:LegalEntity ;
+.
+cjo:Time
+  rdf:type owl:Class ;
+  rdfs:label "Time"^^xsd:string ;
+  rdfs:subClassOf cjo:Reporting ;
 .
 cjo:Touchpoint
   rdf:type owl:Class ;
@@ -701,6 +591,11 @@ cjo:TouchpointSendsDataObject
   rdfs:label "TouchpointSendsDataObject"^^xsd:string ;
   rdfs:range archi:DataObject ;
   rdfs:subPropertyOf cjo:TouchpointIncludesDataObject ;
+.
+cjo:Usage
+  rdf:type owl:Class ;
+  rdfs:label "Usage"^^xsd:string ;
+  rdfs:subClassOf cjo:Reporting ;
 .
 cjo:UsePhase
   rdf:type owl:Class ;
