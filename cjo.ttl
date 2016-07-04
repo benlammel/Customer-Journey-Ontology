@@ -30,7 +30,7 @@
 <http://lammel.ch/cjo>
   rdf:type owl:Ontology ;
   owl:imports <http://ikm-group.ch/archimeo> ;
-  owl:versionInfo "0.43"^^xsd:string ;
+  owl:versionInfo "0.44"^^xsd:string ;
 .
 cjo:Acquisition
   rdf:type owl:Class ;
@@ -115,7 +115,7 @@ cjo:CustomerJourneyEpisode
 cjo:CustomerJourneyEpisodeIsPartofCustomerJourney
   rdf:type rdf:Property ;
   rdfs:domain cjo:CustomerJourneyEpisode ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:label "CustomerJourneyEpisodeIsPartofCustomerJourney"^^xsd:string ;
   rdfs:range cjo:CustomerJourney ;
 .
 cjo:CustomerLifecycle
@@ -242,7 +242,7 @@ cjo:ExperienceRating
 cjo:ExperienceRatingHasExperienceValueNumber
   rdf:type rdf:Property ;
   rdfs:domain cjo:ExperienceRating ;
-  rdfs:label "hasValueNumber"^^xsd:string ;
+  rdfs:label "ExperienceRatingHasExperienceValueNumber"^^xsd:string ;
   rdfs:range xsd:integer ;
 .
 cjo:FaceToFace
@@ -377,13 +377,13 @@ cjo:PersonaPerformsActivity
 cjo:PersonaPerformsCustomerJourney
   rdf:type rdf:Property ;
   rdfs:domain cjo:Persona ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:label "cjo:PersonaPerformsCustomerJourney"^^xsd:string ;
   rdfs:range cjo:CustomerJourney ;
 .
 cjo:PersonaPerformsCustomerJourneyEpisode
   rdf:type rdf:Property ;
   rdfs:domain cjo:Persona ;
-  rdfs:label "PathContainsToActivity"^^xsd:string ;
+  rdfs:label "PersonaPerformsCustomerJourneyEpisode"^^xsd:string ;
   rdfs:range cjo:CustomerJourneyEpisode ;
 .
 cjo:PhysicalTangible
@@ -616,26 +616,26 @@ cjo:Website
 .
 cjo:dissatisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:ExperienceRatingHasExperienceValueNumber 1 ;
+  cjo:ExperienceRatingHasExperienceValueNumber -1 ;
   rdfs:label "dissatisfied"^^xsd:string ;
 .
 cjo:neutral
   rdf:type cjo:ExperienceRating ;
-  cjo:ExperienceRatingHasExperienceValueNumber 2 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 0 ;
   rdfs:label "neutral"^^xsd:string ;
 .
 cjo:satisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:ExperienceRatingHasExperienceValueNumber 3 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 1 ;
   rdfs:label "satisfied"^^xsd:string ;
 .
 cjo:verydissatisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:ExperienceRatingHasExperienceValueNumber 0 ;
+  cjo:ExperienceRatingHasExperienceValueNumber -2 ;
   rdfs:label "very dissatisfied"^^xsd:string ;
 .
 cjo:verysatisfied
   rdf:type cjo:ExperienceRating ;
-  cjo:ExperienceRatingHasExperienceValueNumber 4 ;
+  cjo:ExperienceRatingHasExperienceValueNumber 2 ;
   rdfs:label "very satisfied "^^xsd:string ;
 .
